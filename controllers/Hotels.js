@@ -18,7 +18,6 @@ export const updateHotel = async (req, res, next) => {
     );
     res.status(200).json(udapteHotels);
   } catch (err) {
-/*   res.status(500).json(err); */
  next(err)
   }
 };
