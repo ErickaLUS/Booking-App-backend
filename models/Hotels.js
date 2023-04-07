@@ -7,7 +7,7 @@ const hotelSchema = new mongoose.Schema({
   },
 
   type: {
-    type: String,
+   type: String,
     required: true,
   },
   city: {
