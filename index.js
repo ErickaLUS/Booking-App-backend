@@ -52,10 +52,12 @@ return res.status(errStatus).json({
 });
 
 
-  console.log(Users.find());
+  
 
 
- app.listen(8800, ()=>{
+ app.listen(8800, async()=>{
+   const user = await Users.find()
+   Console.log(user);
      connect()
      console.log('Connected to backend!');
  })
