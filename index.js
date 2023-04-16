@@ -52,9 +52,15 @@ return res.status(errStatus).json({
 });
 
 export const login = async (req, res, next) => {
-const user = await Users.findOne({ username: req.body.username });
-console.log(user.findOne);
-}
+  try {
+    const user = await Users.findOne({ username: req.body.username });
+  console.log(user);
+
+  } catch (err) {
+    next(err);
+  }
+};
+
 
  app.listen(8800, ()=>{
      connect()
