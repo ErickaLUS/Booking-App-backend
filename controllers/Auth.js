@@ -26,6 +26,7 @@ res.status(200).send('User has been created')
 export const login = async (req, res, next) => {
   try {
    const user = await Users.findOne({username:req.body.username})
+   console.log(user);
    if(!user) return next(createError(404,"User not found"))
 
    const isPasswordCorrect = await bcrypt.compare(
