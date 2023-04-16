@@ -8,7 +8,9 @@ import roomsRoute from "./routes/rooms.js";
 import cookieParser from 'cookie-parser';
 import cors from "cors"
 import Users from "./models/Users.js"
- 
+const port = process.env.PORT || 3000
+
+
 const app = express();
 dotenve.config()
 const connect = async () => {
@@ -52,7 +54,7 @@ return res.status(errStatus).json({
 });
 
 
- app.listen(8800, async()=>{
+ app.listen(port, async()=>{
    connect();
    console.log("Connected to backend!");
      const user = await Users.find()
