@@ -51,7 +51,7 @@ return res.status(errStatus).json({
 });
 });
 
-export const login = async (req, res, next) => {
+/* export const login = async (req, res, next) => {
   try {
     const user = await Users.findOne({ username: req.body.username });
   console.log(user);
@@ -59,7 +59,7 @@ export const login = async (req, res, next) => {
   } catch (err) {
     next(err);
   }
-};
+}; */
 
 
  app.listen(8800, ()=>{
