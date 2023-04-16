@@ -5,10 +5,9 @@ import authRoute from "./routes/auth.js"
 import usersRoute from "./routes/users.js";
 import hotelsRoute from "./routes/hotels.js";
 import roomsRoute from "./routes/rooms.js";
-import req from "request";
-import res from "response";
 import cookieParser from 'cookie-parser';
 import cors from "cors"
+import Users from "./models/Users.js"
  
 const app = express();
 dotenve.config()
@@ -29,7 +28,9 @@ mongoose.connection.on("connected", () => {
 });
 
 //middlewares
-app.use(cors())
+app.use(
+  cors()
+);
 app.use(cookieParser());
 app.use(express.json())         
 app.use('/api/auth', authRoute);
@@ -49,6 +50,10 @@ return res.status(errStatus).json({
   stack: err.stack,
 });
 });
+
+
+const user = await Users.findOne({ username: req.body.username });
+console.log(user.findOne);
 
 
  app.listen(8800, ()=>{
